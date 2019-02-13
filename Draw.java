@@ -21,6 +21,7 @@ public class Draw extends JComponent{
 	public int state = 0;
 
 	Monster[] monster = new Monster[5];
+	Hero hero1;
 	
 
 
@@ -28,7 +29,7 @@ public class Draw extends JComponent{
 		monster[1] = new Monster(200,200);
 		monster[2] = new Monster(300,200);
 		monster[3] = new Monster(400,200);
-
+		hero1 = new Hero(this);
 		try{
 			image = ImageIO.read(resource);
 			backgroundImage = ImageIO.read(getClass().getResource("background.jpg"));
@@ -130,7 +131,8 @@ public class Draw extends JComponent{
 		super.paintComponent(g);
 		g.setColor(Color.YELLOW);
 		g.drawImage(backgroundImage, 0, 0, this);
-		g.drawImage(image, x, y, this);
+		g.drawImage(hero1.image, hero1.xPos, hero1.yPos, this);
+
 
 		for(int c = 0; c < monster.length; c++){
 			if(monster[c]!=null){
