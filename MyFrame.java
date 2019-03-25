@@ -1,6 +1,8 @@
 import javax.swing.JFrame;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.*;
+import javax.sound.sampled.*;
 
 public class MyFrame extends JFrame implements KeyListener{
 
@@ -34,8 +36,6 @@ public class MyFrame extends JFrame implements KeyListener{
 
 	}
 
-	
-
 	public void keyReleased(KeyEvent e){
 
 	}
@@ -53,4 +53,5 @@ public class MyFrame extends JFrame implements KeyListener{
 		gameFrame.addKeyListener(gameFrame);
 		System.out.println("practical programming");
 	}
+
 }

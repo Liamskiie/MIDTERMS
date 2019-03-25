@@ -98,6 +98,7 @@ public class Draw extends JComponent{
 		});
 		thread1.start();
 	}
+	
 
 	public void attack(){
 		attackAnimation();

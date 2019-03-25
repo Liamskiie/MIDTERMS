@@ -81,6 +81,45 @@ public class Hero{
         
     }
 
+    public void runLeft(){
+
+        Thread threadx = new Thread(new Runnable(){
+            public void run(){
+                state++;
+
+                if(state == 0){
+                    resource = getClass().getResource("runLeft0.png");
+                }
+                else if(state == 1){
+                    resource = getClass().getResource("runLeft1.png");
+                }
+                else if(state == 2){
+                    resource = getClass().getResource("runLeft2.png");
+                }
+                else if(state == 3){
+                    resource = getClass().getResource("runLeft3.png");
+                }
+                else if(state == 4){
+                    resource = getClass().getResource("runLeft4.png");
+                }
+                else if(state == 5){
+                    resource = getClass().getResource("runLeft5.png");
+                    state = 0;
+                }
+
+                try{
+                    image = ImageIO.read(resource);
+                }
+                catch(IOException e){
+                    e.printStackTrace();
+                }
+
+            }
+        });
+        threadx.start();
+        
+    }
+
     public void attack(){
         attackAnimation();
     }
@@ -99,7 +138,7 @@ public class Hero{
 
     public void moveLeft(){
         xPos = xPos - 5;
-        reloadImage();
+        runLeft();
         comp.repaint();
     }
 
