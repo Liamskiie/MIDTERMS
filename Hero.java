@@ -122,6 +122,9 @@ public class Hero{
 
     public void attack(){
         attackAnimation();
+        attackLeft();
+         comp.repaint();
+
     }
 
     public void moveUp(){
@@ -177,5 +180,33 @@ public class Hero{
         thread1.start();
     }
 
+ public void attackLeft(){
+        Thread thread1 = new Thread(new Runnable(){
+            public void run(){
+                for(int ctr = 0; ctr < 5; ctr++){
+                    try {
+                        if(ctr==4){
+                            resource = getClass().getResource("runleft0.png");
+                        }
+                        else{
+                            resource = getClass().getResource("attackleft"+ctr+".png");
+                        }
+                        
+                        try{
+                            image = ImageIO.read(resource);
+                        }
+                        catch(IOException e){
+                            e.printStackTrace();
+                        }
+                        comp.repaint();
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        thread1.start();
+    }
     
 }

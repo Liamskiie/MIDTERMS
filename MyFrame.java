@@ -39,7 +39,12 @@ public class MyFrame extends JFrame implements KeyListener{
 			PlaySound(walk);
 		}
 		else if(e.getKeyCode() == KeyEvent.VK_SPACE){
-			drawing.hero1.attack();
+			drawing.hero1.attackAnimation();
+			System.out.println("attack");
+			PlaySound(shing);
+		}
+		else if(e.getKeyCode() == KeyEvent.VK_Z){
+			drawing.hero1.attackLeft();
 			System.out.println("attack");
 			PlaySound(shing);
 		}
@@ -72,8 +77,9 @@ public class MyFrame extends JFrame implements KeyListener{
 			clip.open(AudioSystem.getAudioInputStream(Sound));
 			clip.start();
 
-			Thread.sleep(clip.getMicrosecondLength()/1000);
-		}catch(Exception e)
+			
+		}
+		catch(Exception e)
 		{
 
 		}
